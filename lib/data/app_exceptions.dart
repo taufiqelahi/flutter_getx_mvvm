@@ -20,3 +20,9 @@ class RequestTimeOut extends AppExceptions{
 class ServerException extends AppExceptions{
   ServerException([String ?message]):super(message,'Server Internal  Error');
 }
+class InvalidUrlExceptions extends AppExceptions{
+  InvalidUrlExceptions([String ?message]):super(message,'Url not found');
+}
+class FetchDataExceptions extends AppExceptions{
+  FetchDataExceptions([String ?message]):super(message,'');
+}
