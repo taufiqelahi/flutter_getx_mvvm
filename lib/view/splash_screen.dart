@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getx_mvvm/utlis/utlis.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -7,6 +8,9 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('email_hint'.tr),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
          Utils.toastMessage(message: 'message');
