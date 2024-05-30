@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_mvvm/res/assets/image_assets..dart';
 import 'package:getx_mvvm/utlis/utlis.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -11,6 +12,7 @@ class SplashScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('email_hint'.tr),
       ),
+      body: Image.asset(ImageAssets.iconImage),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
          Utils.toastMessage(message: 'message');

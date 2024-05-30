@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
      translations: Languages(),
-     locale: Locale('bn','BD'),
+     locale: Locale('en','US'),
      fallbackLocale: Locale('en','US'),
 
      initialRoute: RoutesName.splashScreen,
