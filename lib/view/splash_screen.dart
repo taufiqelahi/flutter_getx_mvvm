@@ -61,8 +61,9 @@ class SplashScreen extends StatelessWidget {
       body: Image.asset(ImageAssets.iconImage),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Utils.toastMessage(message: 'message');
-          Utils.toastMessageCenter(message: 'message');
+          // Utils.toastMessage(message: 'message');
+          // Utils.toastMessageCenter(message: 'message');
+          Get.toNamed('/watchScreen');
         },
         child: const Text(''),
       ),
