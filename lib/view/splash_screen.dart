@@ -5,13 +5,15 @@ import 'package:getx_mvvm/res/components/general_exceptions_widgets.dart';
 import 'package:getx_mvvm/res/components/internet_exceptions_widgets.dart';
 import 'package:getx_mvvm/utlis/utlis.dart';
 import 'package:getx_mvvm/view_model/langunage_controller.dart';
+import 'package:getx_mvvm/view_model/theme_controller.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    LocaleController langunageController=Get.find();
+    LocaleController langunageController = Get.find();
+    ThemeController themeController=Get.find();
     // return Scaffold(
     //   body: GeneralExceptionsWidgets(),
     // );
@@ -19,6 +21,11 @@ class SplashScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('email_hint'.tr),
         actions: [
+         Obx(()=> IconButton(
+             onPressed: () {
+               themeController.changeTheme();
+             },
+             icon: Icon(themeController.icon)),),
           PopupMenuButton(
             offset: Offset(0.0, AppBar().preferredSize.height),
 
@@ -37,17 +44,15 @@ class SplashScreen extends StatelessWidget {
                 // row has two child icon and text
                 child: Text("বাংলা"),
               ),
-
             ],
 
             color: Colors.grey,
             elevation: 2,
-            onSelected: (value){
-              if(value==1){
+            onSelected: (value) {
+              if (value == 1) {
                 langunageController.changeLocale(lang: 'en', country: 'US');
-              }else if(value==2){
+              } else if (value == 2) {
                 langunageController.changeLocale(lang: 'bn', country: 'BD');
-
               }
             },
           ),
@@ -56,8 +61,8 @@ class SplashScreen extends StatelessWidget {
       body: Image.asset(ImageAssets.iconImage),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-         Utils.toastMessage(message: 'message');
-         Utils.toastMessageCenter(message: 'message');
+          Utils.toastMessage(message: 'message');
+          Utils.toastMessageCenter(message: 'message');
         },
         child: const Text(''),
       ),
