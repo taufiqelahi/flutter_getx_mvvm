@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getx_mvvm/view_model/counter_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    CounterController counterController=Get.put(CounterController());
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: () {  },child: Icon(Icons.add),),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        counterController.changeNumber();
+      },child: Icon(Icons.add),),
       appBar: AppBar(
         title: Text("Home Page"),
       ),
@@ -14,10 +19,12 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              "1",
+          Obx((){
+            return   Text(
+             counterController.a.string,
               style: TextStyle(fontSize: 30),
-            )
+            );
+          })
           ],
         ),
       ),
