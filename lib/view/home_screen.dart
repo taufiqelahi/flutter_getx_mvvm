@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_mvvm/utlis/color/app_colors.dart';
 import 'package:getx_mvvm/view_model/counter_controller.dart';
+import 'package:getx_mvvm/view_model/opacity_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,6 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CounterController counterController=Get.put(CounterController());
+    OpacityController opacityController=Get.put(OpacityController());
     return Scaffold(
       floatingActionButton: FloatingActionButton(onPressed: () {
         counterController.changeNumber();
@@ -20,9 +23,22 @@ class HomeScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
           Obx((){
-            return   Text(
-             counterController.a.string,
-              style: TextStyle(fontSize: 30),
+            return   Column(
+              children: [
+                Container(
+                  height: 300,
+                  width: 200,
+                  color:AppColors.red.withOpacity(opacityController.opacity.value) ,
+                ),
+                Slider(value: opacityController.opacity.value, onChanged: (va){
+                  opacityController.opacity.value=va;
+                }),
+                SizedBox(height: 20,),
+                Text(
+                 counterController.a.string,
+                  style: TextStyle(fontSize: 30),
+                ),
+              ],
             );
           })
           ],
