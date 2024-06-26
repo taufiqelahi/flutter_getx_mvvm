@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      initialRoute: RoutesName.splashScreen,
+      initialRoute: RoutesName.homeScreen,
       getPages: AppRoutes().appRoutes(),
     );
   }

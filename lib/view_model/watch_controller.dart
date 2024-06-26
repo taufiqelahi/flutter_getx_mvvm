@@ -8,7 +8,7 @@ class WatchController extends GetxController{
   @override
   void onInit(){
    super.onInit();
-    Timer.periodic(Duration(seconds: 1), (Timer t){
+    Timer.periodic(const Duration(seconds: 1), (Timer t){
      currentTime.value= DateTime.now();
     });
   }
